@@ -1,9 +1,16 @@
 "use client";
 
+import { useRef } from "react";
 import Section from "@/components/ui/Section";
 import { clients } from "@/constants";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 
 export default function Partners() {
+  const swiperRef = useRef<SwiperType | null>(null);
+
   return (
     <Section className="py-16 md:py-20 border-y border-border/50">
       <div className="text-center mb-10">
@@ -12,23 +19,37 @@ export default function Partners() {
         </span>
       </div>
 
-      <div className="relative overflow-hidden">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10" />
-
-        <div className="flex animate-marquee whitespace-nowrap">
-          {[...clients, ...clients, ...clients, ...clients].map((client, i) => (
-            <div
-              key={i}
-              className="inline-flex items-center justify-center mx-8 md:mx-12 flex-shrink-0"
-            >
-              <span className="text-lg md:text-xl font-[Poppins] font-bold text-gray-300 hover:text-primary transition-colors duration-300 cursor-default select-none">
+      <Swiper
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        modules={[Autoplay]}
+        spaceBetween={48}
+        slidesPerView={2}
+        breakpoints={{
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
+        }}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+          reverseDirection: false,
+        }}
+        speed={3000}
+        loop
+        freeMode
+        className="partners-swiper"
+      >
+        {[...clients, ...clients].map((client, i) => (
+          <SwiperSlide key={i}>
+            <div className="flex items-center justify-center py-4">
+              <span className="text-lg md:text-xl font-[Poppins] font-bold text-gray-300 hover:text-primary transition-colors duration-300 cursor-default select-none whitespace-nowrap">
                 {client}
               </span>
             </div>
-          ))}
-        </div>
-      </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </Section>
   );
 }

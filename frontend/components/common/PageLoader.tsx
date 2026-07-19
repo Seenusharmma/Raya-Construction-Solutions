@@ -29,7 +29,7 @@ export default function PageLoader() {
               className="relative"
             >
               <Image
-                src="/assets/logo.png"
+                src="/assets/mainLogo.png"
                 alt="Raya Construction"
                 width={400}
                 height={110}

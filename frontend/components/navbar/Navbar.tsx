@@ -74,7 +74,7 @@ export default function Navbar() {
           >
             <Link href="/" className="flex items-center gap-3 group">
               <Image
-                src="/assets/logo.png"
+                src="/assets/mainLogo.png"
                 alt="Raya Construction and Solutions"
                 width={200}
                 height={56}

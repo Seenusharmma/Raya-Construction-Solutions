@@ -1,4 +1,4 @@
-import { NavLink, Service, Project, Testimonial, Stat, ProcessStep, FAQ, SiteConfig } from "@/types";
+import { NavLink, Service, Project, Testimonial, Stat, ProcessStep, FAQ, SiteConfig, OfficeLocation } from "@/types";
 
 export const siteConfig: SiteConfig = {
   name: "Raya Construction and Solutions",
@@ -16,6 +16,27 @@ export const siteConfig: SiteConfig = {
     youtube: "https://youtube.com/rayaconstruction",
   },
 };
+
+export const officeLocations: OfficeLocation[] = [
+  {
+    id: "mumbai",
+    city: "Mumbai",
+    address: "Mumbai, Maharashtra, India",
+    phone: "+91 98765 43210",
+    email: "info@rayaconstruction.com",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995709657!3d19.08219783958221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  },
+  {
+    id: "bangalore",
+    city: "Bangalore",
+    address: "Bangalore, Karnataka, India",
+    phone: "+91 98765 43211",
+    email: "bangalore@rayaconstruction.com",
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985623635949!2d77.56867331482243!3d12.972443990855265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+  },
+];
 
 export const navLinks: NavLink[] = [
   { label: "Home", href: "/" },

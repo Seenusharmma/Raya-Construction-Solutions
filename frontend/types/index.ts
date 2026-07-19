@@ -94,3 +94,12 @@ export interface SiteConfig {
     youtube: string;
   };
 }
+
+export interface OfficeLocation {
+  id: string;
+  city: string;
+  address: string;
+  phone: string;
+  email: string;
+  mapUrl: string;
+}

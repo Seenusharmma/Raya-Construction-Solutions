@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Section from "@/components/ui/Section";
-import { siteConfig } from "@/constants";
+import { siteConfig, officeLocations } from "@/constants";
 import { Phone, Mail, MapPin, Clock, ChevronLeft, ChevronRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
@@ -26,13 +26,13 @@ const contactCards = [
     sub: "We reply within 24 hours",
     href: `mailto:${siteConfig.email}`,
   },
-  {
+  ...officeLocations.map((office) => ({
     icon: MapPin,
-    title: "Office",
-    detail: siteConfig.address,
-    sub: "Visit us anytime",
+    title: `${office.city} Office`,
+    detail: office.address,
+    sub: office.phone,
     href: "#map",
-  },
+  })),
   {
     icon: Clock,
     title: "Working Hours",
