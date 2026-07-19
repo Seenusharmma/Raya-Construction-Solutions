@@ -1,0 +1,22 @@
+@import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
+@theme {
+  --color-primary: #102C5C;
+  --color-primary-light: #1A3D7C;
+  --color-primary-dark: #0A1F3F;
+  --color-secondary: #C79A3B;
+  --color-secondary-light: #D4AD5E;
+  --color-secondary-dark: #A67F2E;
+  --color-accent: #D8D8D8;
+  --color-dark: #0F172A;
+  --color-dark-lighter: #1E293B;
+  --color-light: #F8FAFC;
+  --color-background: #FAFAFA;
+  --color-muted: #F3F4F6;
+  --color-border: #E5E7EB;
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+}
