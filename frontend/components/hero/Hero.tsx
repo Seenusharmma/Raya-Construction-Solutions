@@ -2,15 +2,11 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectFade } from "swiper/modules";
-import { stats, heroSlides } from "@/constants";
+
+import { stats } from "@/constants";
 import { useCountUp } from "@/hooks/useCountUp";
-import "swiper/css";
-import "swiper/css/effect-fade";
 
 function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const { count, ref } = useCountUp(value, 2000);
@@ -102,30 +98,19 @@ export default function Hero() {
   return (
     <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Swiper
-          modules={[Autoplay, EffectFade]}
-          effect="fade"
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
+        <video
+          autoPlay
           loop
-          speed={1500}
-          className="w-full h-full"
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          {heroSlides.map((slide, i) => (
-            <SwiperSlide key={i} className="relative w-full h-full">
-              <Image
-                src={slide.image}
-                alt={slide.alt}
-                fill
-                className="object-cover"
-                priority={i === 0}
-                sizes="100vw"
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <source src="/assets/hero.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      <div className="absolute inset-0 z-[1] bg-gradient-to-br from-dark/85 via-primary-dark/70 to-dark/80" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-br from-dark/60 via-primary-dark/40 to-dark/60" />
 
       <canvas
         ref={canvasRef}
@@ -151,7 +136,7 @@ export default function Hero() {
             
           </motion.div>
 
-          <motion.h1 className="font-[Poppins] text-4xl md:text-5xl lg:text-7xl xl:text-[5.5rem] font-bold text-white leading-[1.05] mb-6">
+          <motion.h1 className="font-[Poppins] text-4xl md:text-5xl lg:text-7xl xl:text-[5.5rem] font-bold text-secondary leading-[1.05] mb-6">
             {"Building Tomorrow".split(" ").map((word, i) => (
               <span key={i} className="inline-block overflow-hidden mr-[0.25em]">
                 <motion.span
@@ -203,7 +188,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 3.3 }}
-            className="text-white/60 text-base md:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
+            className="text-secondary/70 text-base md:text-lg lg:text-xl max-w-xl leading-relaxed mb-10"
           >
             India&apos;s premier construction company delivering luxury residential, commercial, and
             industrial projects with engineering excellence and uncompromising quality.
@@ -227,7 +212,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-white/20 text-white text-sm font-semibold uppercase tracking-[0.15em] rounded-[10px] hover:bg-white/5 hover:border-white/40 transition-all duration-300"
+              className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-secondary/30 text-secondary text-sm font-semibold uppercase tracking-[0.15em] rounded-[10px] hover:bg-secondary/10 hover:border-secondary/50 transition-all duration-300"
             >
               Request a Quote
             </Link>
@@ -250,12 +235,12 @@ export default function Hero() {
         transition={{ delay: 4, duration: 1 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-white/30 text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+        <span className="text-secondary/50 text-[10px] uppercase tracking-[0.3em]">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown size={18} className="text-white/30" />
+          <ChevronDown size={18} className="text-secondary/50" />
         </motion.div>
       </motion.div>
     </section>
